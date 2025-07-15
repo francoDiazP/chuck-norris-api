@@ -2,25 +2,24 @@ const message = document.getElementById('msg-quote');
 const img = document.getElementById('chuck-img');
 const btn = document.getElementById('new-joke')
 
-btn.addEventListener('click',
-    async function () {
-        try {
-            const response = await fetch('https://api.chucknorris.io/jokes/random');
-            const data = await response.json();
+async function GetJokes() {
+    try {
+        const response = await fetch('https://api.chucknorris.io/jokes/random');
+        const data = await response.json();
 
-            const joke = data.value;
-            const image = data.icon_url;
+        const joke = data.value;
+        const image = data.icon_url;
 
-            const translatedJoke = await translateToSpanish(joke);
+        const translatedJoke = await translateToSpanish(joke);
 
-            message.textContent = translatedJoke;
-            img.src = image;
+        message.textContent = translatedJoke;
+        img.src = image;
 
-        } catch (error) {
-            console.error(error);
-        }
+    } catch (error) {
+        console.error(error);
     }
-)
+}
+
 
 async function translateToSpanish(text) {
     try {
@@ -40,3 +39,5 @@ async function translateToSpanish(text) {
         return text; //In case of any error you get the original text.
     }
 }
+
+GetJokes();
