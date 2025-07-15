@@ -3,20 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Chuck Norris API</title>
   </head>
   <body>
-    <div class="title">
-      <h1>Quote of the day</h1>
-    </div>
-
     <div class="main-container">
-      <div class="img"><img src="" alt="" id="chuck-img" /></div>
+      <div class="top-container">
+        <h1>
+          Frases Random de <br />
+          "Chuck Norris"
+        </h1>
+      </div>
+      <div class="img"><img src="" alt="img-chuck" id="chuck-img" /></div>
       <div class="quote-container">
         <p id="msg-quote"></p>
       </div>
 
-      <button id="new-joke">Get a new joke</button>
+      <div class="button">
+        <button id="new-joke" onclick="GetJokes()">Obtener nueva frase</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
